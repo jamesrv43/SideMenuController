@@ -40,8 +40,10 @@ class CachingSideViewController: UITableViewController, SideMenuControllerDelega
         let controllerType = dataSource[indexPath.row] as! CacheableViewController.Type
         
         if let controller = sideMenuController?.viewController(forCacheIdentifier: controllerType.cacheIdentifier) {
+            sideMenuController?.modalPresentationStyle = .fullScreen
             sideMenuController?.embed(centerViewController: controller)
         } else {
+            sideMenuController?.modalPresentationStyle = .fullScreen
             sideMenuController?.embed(centerViewController: UINavigationController(rootViewController: controllerType.init()), cacheIdentifier: controllerType.cacheIdentifier)
         }
     }

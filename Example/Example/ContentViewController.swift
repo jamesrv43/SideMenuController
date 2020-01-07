@@ -28,7 +28,8 @@ class ContentViewController: UIViewController, SideMenuControllerDelegate {
     }
     
     @IBAction func presentAction() {
-        present(ViewController.fromStoryboard, animated: true, completion: nil)
+        self.modalPresentationStyle = .fullScreen
+        self.present(ViewController.fromStoryboard, animated: true, completion: nil)
     }
     
     var randomColor: UIColor {
